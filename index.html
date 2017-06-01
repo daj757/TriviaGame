@@ -13,31 +13,31 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="fluid-container">
+<div class="container-fluid">
 
 <!-- Header -->
 
 <div>
-    <h1> Technology Quiz </h1>
+    <h1>How many random facts do you know? </h1>
 </div>
 <div id="timer"></div>
 
-<button type="button" class="btn start">Begin Quiz</button>
+<button type="button" class="btn start">Begin Quiz!</button>
 
 <!-- Questions and answers -->
 
-<div class="questions q1" id="1">
-  <p>Which company made the first working computer?</p>
+<div class="questions q1">
+  <p>What was the first living creature that was sent into space?</p>
 <form class="options">
-        <input class="option" type="radio" name="question1" value="4">IBM<br>
-        <input class="option" type="radio" name="question1" value="3">Hewlett Packard<br>
-        <input class="option" type="radio" name="question1" value="2">Apple<br>
-        <input class="option" type="radio" name="question1" value="1">Exxon</br>
+        <input class="option" type="radio" name="question1" value="4">Monkey<br>
+        <input class="option" type="radio" name="question1" value="3">Mouse<br>
+        <input class="option" type="radio" name="question1" value="2">Dog<br>
+        <input class="option" type="radio" name="question1" value="1">Cat</br>
     </form>
 </div>
  <div class="questions q2" id="1">
@@ -62,17 +62,26 @@
 <!-- Answer slides -->
 
 <div class="answerSlides a1">
-<p>Answers</p>
+<div id="genAnswer"></div>
+<p>The answer is a Monkey. On June 11, 1948 a small rhesus monkey would be the first creature launched into space. The monkey was named Albert I.
+
+https://history.nasa.gov/animals.html</p>
 </div>
 
 <div class="answerSlides a2">
-<p>Answers</p>
+<div id="genAnswer"></div>
+<p>Answers2</p>
 </div>
 
 <div class="answerSlides a3">
-<p>Answers</p>
+<div id="genAnswer"></div>
+<p>Answers3</p>
 </div>
 
+<!-- Scoreboard  -->
+<div class="scoreboard">
+<p>Scores</p>
+</div>
 
 
 

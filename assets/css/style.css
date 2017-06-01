@@ -1,0 +1,11 @@
+h1 {
+	text-align: center;
+	color: white;
+	background-color: black;
+}
+button.start {
+	margin-left: 35%;
+	margin-top: 150px;
+	width: 145px;
+	background-color: grey;
+}

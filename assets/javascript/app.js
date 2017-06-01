@@ -2,8 +2,10 @@ $(document).ready(function(){
 
 	// Variables
 var count = 10;
+var count2 = 4;
 var i = 0;
 var h = -1;
+var j = 0;
 var answersRight = 0;
 var answersWrong = 0;
 var currentQuestion = 0;
@@ -23,17 +25,18 @@ var a3 = $(".a3");
 // Answer Arrays
 var answerSlides = [a1, a2, a3];
 var questionArray = [q1, q2, q3];
-var answerkeyArray = [1, 2, 3, 4, 1];
+var answerkeyArray = [4, 2, 3, 4, 1];
 var answer = 0;
 
 
-console.log(questionArray);
+
 
    // Hides questions/answers
 
 $(".questions").hide();
 $("#timer").hide();
 $(".answerSlides").hide();
+$(".scoreboard").hide();
 
 
    // Button begins quiz and timer
@@ -56,26 +59,52 @@ answer = $("form input[type='radio']:checked").val();
 })
 
 
-    // Timer function
+    // Timer function on questions
 
 function timer()
 {	
-	$("#timer").html(count + " seconds remaining");
+	$("#timer").html("You have " + count + " seconds remaining");
 	var counter = setTimeout(timer, 1000);
 	count=count-1;
 	
 
   if (count <= -1 || answer >=1)
-  {   
-  	answer = 0;   
+  {    
     answers();
   	i = i + 1;
   	h = h + 1;
   	$(questionArray[h]).hide();
-    $(questionArray[i]).show();
+  	clearTimeout(counter);
+  	answerSlide();
    	count = 10;
 
   }
+  	else if (j >= answerSlides.length){
+		alert("end");
+	}
+
+
+}
+// Sets answer slides with timer
+
+function answerSlide(){
+	var timer1 = setTimeout(answerSlide, 1000);
+	answer = 0;
+	$("#timer").hide();
+
+	$(answerSlides[j]).show();
+	count2=count2-1;
+
+		if(count2<=-1){
+		count2 = 4;
+		j = j + 1;
+		clearTimeout(timer1);
+		timer();
+		$("#timer").show();
+		$(questionArray[i]).show();
+		$(answerSlides[h]).hide();
+
+		}
 
 
 }
@@ -86,20 +115,26 @@ function answers() {
 	
 	var answerCheck = answerkeyArray[i];
 	var correctA = answerSlides[i];
+	console.log(answerCheck);
+	console.log(answer);
 
-		if(answer === answerCheck) {
+		if(answer == answerCheck) {
 			answersRight = answersRight + 1;
-			console.log(answersRight);
+			
+			$("#genAnswer").html("You have were right!");
 			
 		}
+
+		else if(answer == 0){
+			$("#genAnswer").html("You ran out of time :("); 
+		}
+		
 		else if(answer !== answerCheck){
 			answersWrong = answersWrong + 1;
-			console.log(answersWrong);
+			$("#genAnswer").html("You have were wrong");
 			
 		}
-		else if (i === questionkeyArray.length){
-		alert("end");
-	}
+		
 	
 }
 
