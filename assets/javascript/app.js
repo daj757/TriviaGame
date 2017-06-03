@@ -15,17 +15,30 @@ var currentQuestion = 0;
 var q1 = $(".q1");
 var q2 = $(".q2");
 var q3 = $(".q3");
-
+var q4 = $(".q4");
+var q5 = $(".q5");
+var q6 = $(".q6");
+var q7 = $(".q7");
+var q8 = $(".q8");
+var q9 = $(".q9");
+var q10 = $(".q10");
 	// Answer slides
 
 var a1 = $(".a1");
 var a2 = $(".a2");
 var a3 = $(".a3");
+var a4 = $(".a4");
+var a5 = $(".a5");
+var a6 = $(".a6");
+var a7 = $(".a7");
+var a8 = $(".a8");
+var a9 = $(".a9");
+var a10 = $(".a10");
 
 // Answer Arrays
-var answerSlides = [a1, a2, a3];
-var questionArray = [q1, q2, q3];
-var answerkeyArray = [4, 2, 3, 4, 1];
+var answerSlides = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10];
+var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+var answerkeyArray = [4, 1, 1, 2, 2, 1, 4, 2, 3, 2];
 var answer = 0;
 
 
@@ -53,8 +66,9 @@ $(function(){
 
     // Radio button clicked function
 
- $(".option").on("click",function(){
-answer = $("form input[type='radio']:checked").val();
+ $("input").on("click",function(){
+
+answer = $(".q"+(i+1)+" form input[type='radio']:checked").val();
 
 })
 
@@ -121,17 +135,17 @@ function answers() {
 		if(answer == answerCheck) {
 			answersRight = answersRight + 1;
 			
-			$("#genAnswer").html("You have were right!");
+			$(".genAnswer").html("You were right!!");
 			
 		}
 
 		else if(answer == 0){
-			$("#genAnswer").html("You ran out of time :("); 
+			$(".genAnswer").html("You ran out of time :("); 
 		}
 		
 		else if(answer !== answerCheck){
 			answersWrong = answersWrong + 1;
-			$("#genAnswer").html("You have were wrong");
+			$(".genAnswer").html("Not quite... ");
 			
 		}
 		
@@ -145,5 +159,4 @@ function answers() {
 
 });
 });
-
 
