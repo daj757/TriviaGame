@@ -1,7 +1,21 @@
+body {
+	background-image: url(../images/wallpaper.png);
+	background-size: cover;
+	color: white;
+	font-family: 'Muli', sans-serif;
+	
+}
+#timer {
+	font-size: 35pt;
+}
+.questions {
+	font-size: 20px;
+}
 h1 {
 	text-align: center;
+	margin-top: 25px;
 	color: white;
-	background-color: black;
+	
 }
 #timer {
 	text-align: center;
@@ -9,12 +23,16 @@ h1 {
 	margin-bottom: 15px;
 
 }
-button.start {
-	margin-left: 35%;
+button {
+	
 	margin-top: 150px;
 	width: 145px;
-	
+	color: white;
+	background-color: #859599;
 
+}
+a {
+	color: #80e5ff;
 }
 
 .options input {
@@ -27,9 +45,13 @@ button.start {
 .questions p {
 	text-align: center;
 }
-.questions {
 
-}
 .answerSlides {
 	text-align: center;
+	font-size: 20px;
+}
+
+.scoreboard {
+	text-align: center;
+	font-size: 20px;
 }

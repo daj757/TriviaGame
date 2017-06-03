@@ -8,7 +8,7 @@ var h = -1;
 var j = 0;
 var answersRight = 0;
 var answersWrong = 0;
-var currentQuestion = 0;
+
 
 // Question Slides
 
@@ -64,6 +64,8 @@ $(function(){
 
     });
 
+
+
     // Radio button clicked function
 
  $("input").on("click",function(){
@@ -77,7 +79,7 @@ answer = $(".q"+(i+1)+" form input[type='radio']:checked").val();
 
 function timer()
 {	
-	$("#timer").html("You have " + count + " seconds remaining");
+	$("#timer").html(count);
 	var counter = setTimeout(timer, 1000);
 	count=count-1;
 	
@@ -93,8 +95,14 @@ function timer()
    	count = 10;
 
   }
-  	else if (j >= answerSlides.length){
-		alert("end");
+  	else if (j === answerSlides.length){
+  		clearTimeout(counter);
+  		$("#timer").html(" ");
+  		$("#timer").hide();
+		$(".scoreboard").show();
+		$("#rightA").html("You got " + answersRight + " right");
+		$("#wrongA").html("You got " + answersWrong + " wrong");
+
 	}
 
 
@@ -119,6 +127,7 @@ function answerSlide(){
 		$(answerSlides[h]).hide();
 
 		}
+		
 
 
 }
@@ -129,8 +138,7 @@ function answers() {
 	
 	var answerCheck = answerkeyArray[i];
 	var correctA = answerSlides[i];
-	console.log(answerCheck);
-	console.log(answer);
+
 
 		if(answer == answerCheck) {
 			answersRight = answersRight + 1;
@@ -152,8 +160,21 @@ function answers() {
 	
 }
 
-	// Resets program
 
+
+	// Resets program
+	
+$( ".restart" ).on( "click", function() {
+   
+    i = 0;
+ 	h = -1;
+ 	j = 0;
+ 	answersRight = 0;
+ 	answersWrong = 0;
+ 	$(".scoreboard").hide();
+ 	$("timer").hide();
+ 	$(".start").show();
+})
 
 
 
